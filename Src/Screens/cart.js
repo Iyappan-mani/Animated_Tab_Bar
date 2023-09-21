@@ -1,11 +1,14 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, StatusBar } from 'react-native';
 
 // create a component
 const Cart = () => {
+    
     return (
         <View style={styles.container}>
+      <StatusBar barStyle="light-content" backgroundColor={"red"} />
+
             <Text style={{color:"white"}}>cart</Text>
         </View>
     );
@@ -17,7 +20,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'blue',
+        backgroundColor: 'red',
     },
 });
 
