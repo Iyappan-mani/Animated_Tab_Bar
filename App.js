@@ -13,25 +13,25 @@ import Order from './Src/Screens/order';
 // create a component
 const Tab = createBottomTabNavigator()
 
-const AnimatedSvg = Animated.createAnimatedComponent(Svg)
+// const AnimatedSvg = Animated.createAnimatedComponent(Svg)
 const App = ({ navigation }) => {
-  const tabOffsetValue = useRef(new Animated.Value(0)).current;
+  // const tabOffsetValue = useRef(new Animated.Value(0)).current;
 
-  function getWidth() {
-    let width = Dimensions.get("window").width
-    // Horizontal Padding = 20...
-    width = width - 80
-    // Total five Tabs...
-    return width / 5
-  }
+  // function getWidth() {
+  //   let width = Dimensions.get("window").width
+  //   // Horizontal Padding = 20...
+  //   width = width - 80
+  //   // Total five Tabs...
+  //   return width / 5
+  // }
   return (
     <>
       <StatusBar barStyle="light-content" backgroundColor={"blue"} />
       <NavigationContainer>
 
-        <Tab.Navigator
+        {/* <Tab.Navigator
           screenOptions={{ tabBarStyle: { backgroundColor: '#fff', position: 'absolute', bottom: 0, height: "9%", paddingHorizontal: 5,overflow:"visible" } }}
-          backBehavior="history">
+          backBehavior="history"> */}
           <Tab.Screen name="home" component={Home} options={{
             headerShown: false, tabBarLabel: "Food", tabBarLabelStyle: { bottom: 15, fontSize: 13 }, tabBarIcon: ({ focused }) => {
               return (
@@ -54,7 +54,7 @@ const App = ({ navigation }) => {
             headerShown: false, headerTitleAlign: "center", headerTitle: "Cart", tabBarLabel: "Cart", tabBarLabelStyle: { position: "absolute", fontSize: 13, bottom: 14 }, tabBarIcon: ({ focused }) => {
               return (
                 <>
-                  {
+                  {/* {
                     focused ?
                       <View style={{ position: 'absolute', top: 2, backgroundColor: "red", padding: 10, borderRadius:100,overflow:"visible" }}>
                         <Image source={require("./Src/img1.png")} tintColor={"white"} style={styles.icon} />
@@ -63,7 +63,7 @@ const App = ({ navigation }) => {
                       <View style={{ position: 'absolute', top: 20 }}>
                         <Image source={require("./Src/img1.png")} style={styles.icon} />
                       </View>
-                  }
+                  } */}
                 </>
               )
             }
