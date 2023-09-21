@@ -1,3 +1,11 @@
+
+<>
+<img src="https://github.com/Iyappan-mani/Animated_Tab_Bar/blob/main/Src/Simg0.jpg" width="200">
+<img src="https://github.com/Iyappan-mani/Animated_Tab_Bar/blob/main/Src/Simg2.jpg" width="200">
+<img src="https://github.com/Iyappan-mani/Animated_Tab_Bar/blob/main/Src/Simg3.jpg" width="200">
+<img src="https://github.com/Iyappan-mani/Animated_Tab_Bar/blob/main/Src/Simg1.jpg" width="200">
+
+</>
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
