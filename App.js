@@ -13,25 +13,25 @@ import Order from './Src/Screens/order';
 // create a component
 const Tab = createBottomTabNavigator()
 
-const AnimatedSvg = Animated.createAnimatedComponent(Svg)
+// const AnimatedSvg = Animated.createAnimatedComponent(Svg)
 const App = ({ navigation }) => {
-  const tabOffsetValue = useRef(new Animated.Value(0)).current;
+  // const tabOffsetValue = useRef(new Animated.Value(0)).current;
 
-  function getWidth() {
-    let width = Dimensions.get("window").width
-    // Horizontal Padding = 20...
-    width = width - 80
-    // Total five Tabs...
-    return width / 5
-  }
+  // function getWidth() {
+  //   let width = Dimensions.get("window").width
+  //   // Horizontal Padding = 20...
+  //   width = width - 80
+  //   // Total five Tabs...
+  //   return width / 5
+  // }
   return (
     <>
       <StatusBar barStyle="light-content" backgroundColor={"blue"} />
       <NavigationContainer>
 
-        <Tab.Navigator
+        {/* <Tab.Navigator
           screenOptions={{ tabBarStyle: { backgroundColor: '#fff', position: 'absolute', bottom: 0, height: "9%", paddingHorizontal: 5,overflow:"visible" } }}
-          backBehavior="history">
+          backBehavior="history"> */}
           <Tab.Screen name="home" component={Home} options={{
             headerShown: false, tabBarLabel: "Food", tabBarLabelStyle: { bottom: 15, fontSize: 13 }, tabBarIcon: ({ focused }) => {
               return (
