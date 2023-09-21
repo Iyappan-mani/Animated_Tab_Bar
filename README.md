@@ -1,4 +1,4 @@
-![](https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png =250x250)
+![](https://github.com/Iyappan-mani/Animated_Tab_Bar/blob/main/Src/Simg0.jpg=250x250)
 
 
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
