@@ -1,6 +1,6 @@
 
-![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://github.com/Iyappan-mani/Animated_Tab_Bar/blob/main/Src/Simg0.jpg=250x250)
-<img src="https://github.com/Iyappan-mani/Animated_Tab_Bar/blob/main/Src/Simg0.jpg" width="300">
+
+<img src="https://github.com/Iyappan-mani/Animated_Tab_Bar/blob/main/Src/Simg0.jpg" width="100">
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
