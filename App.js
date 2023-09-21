@@ -6,17 +6,11 @@ import React, { useEffect, useReducer, useRef, useState } from 'react';
 import { View, Text, StyleSheet, Animated, StatusBar, Pressable, TouchableOpacity, Image, Dimensions } from 'react-native';
 import Svg, { Path, Circle } from 'react-native-svg'
 
-import home from './Src/Screens/home';
-import cart from './Src/Screens/cart';
-import order from './Src/Screens/order';
 import Profile from './Src/Screens/profile';
 import Home from './Src/Screens/home';
 import Cart from './Src/Screens/cart';
 import Order from './Src/Screens/order';
 // create a component
-
-
-
 const Tab = createBottomTabNavigator()
 
 const AnimatedSvg = Animated.createAnimatedComponent(Svg)
@@ -44,7 +38,7 @@ const App = ({ navigation }) => {
                 <>
                   {
                     focused ?
-                      <View style={{ position: 'absolute', top: 0, backgroundColor: "blue", padding: 10, borderRadius: 20 }}>
+                      <View style={{ position: 'absolute', top: 2, backgroundColor: "blue", padding: 10, borderRadius: 20 }}>
                         <Image source={require("./Src/img2.png")} tintColor={"white"} style={styles.icon} />
                       </View>
                       :
@@ -62,7 +56,7 @@ const App = ({ navigation }) => {
                 <>
                   {
                     focused ?
-                      <View style={{ position: 'absolute', top: 0, backgroundColor: "red", padding: 10, borderRadius:100,overflow:"visible" }}>
+                      <View style={{ position: 'absolute', top: 2, backgroundColor: "red", padding: 10, borderRadius:100,overflow:"visible" }}>
                         <Image source={require("./Src/img1.png")} tintColor={"white"} style={styles.icon} />
                       </View>
                       :
@@ -86,7 +80,7 @@ const App = ({ navigation }) => {
                 <>
                   {
                     focused ?
-                      <View style={{ position: 'absolute', top: 0, backgroundColor: "green", padding: 10, borderRadius: 20 }}>
+                      <View style={{ position: 'absolute', top: 2, backgroundColor: "green", padding: 10, borderRadius: 20 }}>
                         <Image source={require("./Src/lists.png")} tintColor={"white"} style={styles.icon} />
                       </View>
                       :
@@ -152,176 +146,14 @@ const App = ({ navigation }) => {
               />
 
           </AnimatedSvg>
-
-
         </View>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       </NavigationContainer >
     </>
   )
 };
 
-const AnimatedTabBar = (values, { navigation }) => {
-  // const { bottom } = useSafeAreaInsets()
-  // let state = { index: values.state.index, routes: values.state.routes, }
-  console.log(JSON.stringify(values));
-  let activeIndex = values.state.index
-  let routes = values.state.routes
-  let descriptors = values.descriptors
-  // get information about the components position on the screen -----
-
-  const reducer = (state, action = { x, index }) => {
-    // Add the new value to the state
-    return [...state, { x: action.x, index: action.index }]
-  }
-
-  const [layout, dispatch] = useReducer(reducer, [])
-  // console.log(layout)
-
-  const handleLayout = (event, index) => {
-    dispatch({ x: event.nativeEvent.layout.x, index })
-  }
-
-  // // animations ------------------------------------------------------
-
-  const xOffset = (() => {
-    return [...layout].find(({ index }) => index == activeIndex).x - 20
-  }, [activeIndex, layout])
-
-  const animatedStyles = (() => {
-    return {
-      transform: [{ translateX: withTiming(xOffset.value, { duration: 250 }) }],
-    }
-  })
 
 
-
-
-  return (
-    <View style={[styles.tabBar, { paddingBottom: 15 }]}>
-      <AnimatedSvg
-        width={110}
-        height={50}
-        viewBox="0 0 90 60"
-        style={[styles.activeBackground,]}
-      >
-        <Path
-          fill="red"
-          d="M20 0H0c11.046 0 20 8.953 20 20v5c0 19.33 15.67 35 35 35s35-15.67 35-35v-5c0-11.045 8.954-20 20-20H20z"
-        />
-      </AnimatedSvg>
-
-      <View style={styles.tabBarContainer}>
-        {routes.map((route, index) => {
-          console.log(route, "activeIndex");
-          const active = index === activeIndex
-          const { options } = descriptors[route.key]
-          const ref = useRef(null)
-          const fadeAnim = new Animated.Value(0)
-          useEffect(() => {
-            if (active && ref?.current) {
-              // @ts-ignore
-              ref.current
-            }
-          }, [active])
-          return (
-            <TouchableOpacity onPress={() => { navigation.navigate(route.name) }} onLayout={(e) => handleLayout(e, index)} style={styles.component}>
-              <Animated.View
-                style={[styles.componentCircle, {
-                  transform: [
-                    {
-                      scale: active ? 1 : 0.5
-                    }
-                  ]
-                }]}
-              />
-              <Animated.View style={[styles.iconContainer,]}>
-                {/* @ts-ignore */}
-                {options.tabBarIcon ? options.tabBarIcon({ ref }) : <Text>?</Text>}
-              </Animated.View>
-            </TouchableOpacity>
-          )
-        })}
-      </View>
-    </View>
-  )
-}
-
-
-
-
-
-const TabBarComponent = ({ active, options, onLayout, onPress, navigation }) => {
-  // handle lottie animation -----------------------------------------
-  const ref = useRef(null)
-  const fadeAnim = new Animated.Value(0)
-  useEffect(() => {
-    if (active && ref?.current) {
-      // @ts-ignore
-      ref.current
-    }
-  }, [active])
-
-  // animations ------------------------------------------------------
-
-  const animatedComponentCircleStyles = Animated.timing(fadeAnim, {
-    toValue: active ? 1 : 0,
-    duration: 5000,
-    useNativeDriver: true,
-  })
-
-  const animatedIconContainerStyles = Animated.timing(fadeAnim, {
-    toValue: active ? 1 : 0.5,
-    duration: 5000,
-    useNativeDriver: true,
-  }).start();
-
-  return (
-    <TouchableOpacity onPress={onPress} onLayout={onLayout} style={styles.component}>
-      <Animated.View
-        style={[styles.componentCircle, {
-          transform: [
-            {
-              scale: active ? 1 : 0.5
-            }
-          ]
-        }]}
-      />
-      <Animated.View style={[styles.iconContainer,]}>
-        {/* @ts-ignore */}
-        {options.tabBarIcon ? options.tabBarIcon({ ref }) : <Text>?</Text>}
-      </Animated.View>
-    </TouchableOpacity>
-  )
-}
 
 
 // define your styles
